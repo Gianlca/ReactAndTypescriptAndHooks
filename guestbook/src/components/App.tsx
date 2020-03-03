@@ -1,24 +1,38 @@
 import React from 'react';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 
-function App() {
+import useStyles from './styles';
+
+import Home from './Home';
+
+const App = () => {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <div className={classes.root}>
+    <AppBar position="static">
+      <Toolbar>
+        <Button component={Link} to="/" color="inherit">Home</Button>
+        <Button component={Link} to="/about" color="inherit">About</Button>
+      </Toolbar>
+    </AppBar>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/about">
+          <h1>About Page</h1>
+        </Route>
+        <Redirect to="/" />
+      </Switch>
     </div>
-  )
-}
+  </div>
+  );
+};
 
 export default App;
