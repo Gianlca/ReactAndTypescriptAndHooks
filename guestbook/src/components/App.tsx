@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import useStyles from './styles';
 
 import Home from './Home';
+import Container from '@material-ui/core/Container';
 
 const App = () => {
   const classes = useStyles();
@@ -22,7 +23,7 @@ const App = () => {
         <Button component={Link} to="/about" color="inherit">About</Button>
       </Toolbar>
     </AppBar>
-    <div>
+    <Container>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/about">
@@ -30,7 +31,7 @@ const App = () => {
         </Route>
         <Redirect to="/" />
       </Switch>
-    </div>
+    </Container>
   </div>
   );
 };

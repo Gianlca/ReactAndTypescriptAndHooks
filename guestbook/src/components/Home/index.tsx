@@ -1,20 +1,21 @@
 import React from 'react';
 import {useStoreState} from '../../hooks';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
+import GuestBookEntriesForm from '../GuestBookEntriesForm';
 
-const Home: React.FC= () => {
+const Home: React.FC = () => {
     const classes = useStyles();
-    const entries = useStoreState(state => state.guestbook.entries);
+    const entries = useStoreState((state) => state.guestbook.entries);
     return (
         <div>
-            {entries.map((entry) => (
-            <Card className={classes.root}>
+          <GuestBookEntriesForm/>
+            {entries.map((entry, i) => (
+            <Card className={classes.root} key={`id_${i}`}>
               <CardContent>
                 <Typography variant="h2">
                   {entry.name}
@@ -22,7 +23,7 @@ const Home: React.FC= () => {
                 <Typography variant="body1">
                   {entry.content}
                 </Typography>    
-                <small>{entry.submitted.toLocaleDateString()}</small>            
+                <small>{entry.submitted ? entry.submitted.toLocaleDateString() : null}</small>            
               </CardContent>
             </Card>
             ))

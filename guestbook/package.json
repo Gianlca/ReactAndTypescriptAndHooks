@@ -15,9 +15,11 @@
     "easy-peasy": "^3.3.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-hook-form": "^5.0.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "yup": "^0.28.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/yup": "^0.26.32",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
     "eslint": "^6.8.0",
